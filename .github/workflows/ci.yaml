@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - dev
+      - main
 
 jobs:
   test-and-build:
@@ -35,4 +36,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/github-actions-ci:${{ github.sha }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/github-actions-ci:${{ github.ref_name }}-${{ github.sha }}
